@@ -12,7 +12,8 @@ public class TaxiAppUI{
         private char[][] map;
 
 
-        public TaxiAppUI() {
+
+    public TaxiAppUI() {
             user = new LinkedList<>();
             map = new char[MAP_SIZE][MAP_SIZE];
 
