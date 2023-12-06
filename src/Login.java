@@ -65,7 +65,7 @@ public class Login {
         String username=input.nextLine();
         String usernameLowerCase = username.toLowerCase();
         if(doesContain(usernameLowerCase, usernames)!=-1) {
-            System.out.println("The account "+username+" does not exist.\n Would you like to log in to this account?[0]\n Or\n Input a different username?[1]\n");
+            System.out.println("The account "+username+" already exists.\n Would you like to log in to this account?[0]\n Or\n Input a different username?[1]\n");
             for(int j=0; j<1; j++) {
                 String choice = input.nextLine();
                 if (choice.equals("0")) {
@@ -92,9 +92,9 @@ public class Login {
 
         }
     }
-    public int doesContain(String username, ArrayList<User> usernames){
+    public int doesContain(String username, ArrayList<User> usernames) {
         int result = -1;
-        for (int i=0; i<usernames.size();i++) {
+        for (int i = 0; i < usernames.size(); i++) {
             if (username.equals((usernames.get(i)).getUsername())) {
                 result = i;
                 break;
