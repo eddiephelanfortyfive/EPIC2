@@ -72,6 +72,7 @@ public class TaxiAppUI{
         public static void generateMap() {
             TaxiAppUI taxiApp = new TaxiAppUI();
             taxiApp.run();
+            System.out.println("Map generated");
         }
 
 
