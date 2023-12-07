@@ -7,14 +7,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 public class TextHandler {
     private static final String USERS_FILE_PATH = "users.csv";
-    public ArrayList<User> readUsersAndPasswords(){
-        ArrayList<User> usersAndPasswords = new ArrayList<>();
+    public int getLines(){
+        int count=0;
         try (BufferedReader resultReader = new BufferedReader(new FileReader(USERS_FILE_PATH))) {
             String line;
-
+            while ((resultReader.readLine()) != null) {
+                count++;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return count;
+    }
+    public User[] readUsersAndPasswords() {
+        User[] usersAndPasswords = new User[getLines()];
+        try (BufferedReader resultReader = new BufferedReader(new FileReader(USERS_FILE_PATH))) {
+            String line;
+            int i = 0;
             while ((line = resultReader.readLine()) != null) {
                 String[] values = line.split(",");
-                usersAndPasswords.add(new User(values[0],values[1]));
+                usersAndPasswords[i] = new User(values[0], values[1]);
+                i++;
             }
         } catch (IOException e) {
             e.printStackTrace();
