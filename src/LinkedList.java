@@ -17,6 +17,8 @@ interface List<T> {
     void remove();
 
     int size();
+
+    void printAllData();
 }
 
 class LinkedList<T> implements List<T> {
@@ -121,6 +123,14 @@ class LinkedList<T> implements List<T> {
             temp = temp.next;
         }
         return temp;
+    }
+   public void printAllData(){
+        moveToFirst();
+       int size= size();
+       for(int i =0; i<size; i++){
+           System.out.println(getData());
+           moveToNext();
+       }
     }
 
     public int size() {
