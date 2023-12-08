@@ -1,16 +1,13 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-//import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 public class TextHandler {
     private static final String USERS_FILE_PATH = "users.csv";
     public int getLines(){
         int count=0;
         try (BufferedReader resultReader = new BufferedReader(new FileReader(USERS_FILE_PATH))) {
-            String line;
             while ((resultReader.readLine()) != null) {
                 count++;
             }
