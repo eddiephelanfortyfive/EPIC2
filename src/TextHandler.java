@@ -17,15 +17,13 @@ public class TextHandler {
         }
         return count;
     }
-    public User[] readUsersAndPasswords() {
-        User[] usersAndPasswords = new User[getLines(USERS_FILE_PATH)];
+    public LinkedList<User> readUsersAndPasswords() {
+        LinkedList<User> usersAndPasswords = new LinkedList<>();
         try (BufferedReader resultReader = new BufferedReader(new FileReader(USERS_FILE_PATH))) {
             String line;
-            int i = 0;
             while ((line = resultReader.readLine()) != null) {
                 String[] values = line.split(",");
-                usersAndPasswords[i] = new User(values[0], values[1]);
-                i++;
+                usersAndPasswords.insert(new User(values[0], values[1]));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,19 +47,18 @@ public class TextHandler {
 
 
     }
-    public Taxi[] readTaxiData() {
-        Taxi[] TaxiData = new Taxi[getLines(TAXIS_FILE_PATH)];
+    private static LinkedList<Taxi> readTaxiData() {
+        LinkedList<Taxi> taxis = new LinkedList<>();
         try (BufferedReader resultReader = new BufferedReader(new FileReader(TAXIS_FILE_PATH))) {
             String line;
-            int i = 0;
+            taxis.moveToFirst();
             while ((line = resultReader.readLine()) != null) {
                 String[] values = line.split(",");
-                TaxiData[i] = new Taxi(values[0], values[1], Integer.parseInt(values[2]),values[3],values[4],Integer.parseInt(values[5]));
-                i++;
+                taxis.insert( new Taxi(values[0], values[1], Integer.parseInt(values[2]),values[3],values[4],Integer.parseInt(values[5])));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return TaxiData;
+        return taxis;
     }
 }

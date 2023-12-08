@@ -1,11 +1,12 @@
 
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Login {
     public void loginOrSignUp(){
         Scanner input = new Scanner(System.in);
         TextHandler text = new TextHandler();
-        User[] usernames =text.readUsersAndPasswords();
+        LinkedList<User> usernames =text.readUsersAndPasswords();
         System.out.println("---\nWelcome to the TaxiApp.\n Sign up [0]\n or\n Log in[1]");
         for(int i =0; i<1; i++) {
             String logInOrSignUp = input.nextLine();
@@ -18,7 +19,7 @@ public class Login {
             }
         }
     }
-    public void loginToApp( User[] usernames,TextHandler text){
+    public void loginToApp( LinkedList<User> usernames, TextHandler text){
         Scanner input = new Scanner(System.in);
         for(int i=0; i<1; i++) {
             System.out.println("---\nLogin please enter your username: ");
@@ -27,9 +28,11 @@ public class Login {
             if (doesContain(usernameLowerCase, usernames) != -1) {
                 int index = doesContain(usernameLowerCase, usernames);
                 System.out.println("Welcome back " + username + " please enter your password.");
+                usernames.moveToFirst();
+                IntStream.range(0, index).forEach(p -> usernames.moveToNext());
                 for (int k = 0; k < 1; k++) {
                     String password = input.nextLine();
-                    if (password.equals((usernames[index]).getPassword())) {
+                    if (password.equals((usernames.getData()).getPassword())) {
                         System.out.println("Correct, you are now logged into the account " + username);
                     } else {
                         System.out.println("Incorrect password for the account " + username + " please try again.");
@@ -58,7 +61,7 @@ public class Login {
 
         }
     }
-    public void signUpToApp( User[] usernames, TextHandler text){
+    public void signUpToApp( LinkedList<User> usernames, TextHandler text){
         Scanner input = new Scanner(System.in);
     for(int i=0; i<1; i++){
         System.out.println("---\nSign up enter your chosen username: ");
@@ -92,13 +95,15 @@ public class Login {
 
         }
     }
-    public int doesContain(String username, User[] usernames) {
+    public int doesContain(String username, LinkedList<User> usernames) {
         int result = -1;
+        usernames.moveToFirst();
         for (int i = 0; i <username.length(); i++) {
-            if (username.equals((usernames[i]).getUsername())) {
+            if (username.equals((usernames.getData()).getUsername())) {
                 result = i;
                 break;
             }
+            usernames.moveToNext();
         }
         return result;
     }
