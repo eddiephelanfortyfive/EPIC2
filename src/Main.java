@@ -8,5 +8,6 @@ public class Main {
        AppLogic.clearConsole();
        TaxiAppUI.generateMap();
 
+
     }
 }
