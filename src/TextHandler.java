@@ -3,20 +3,10 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+@SuppressWarnings({"ClassEscapesDefinedScope", "CallToPrintStackTrace"})
 public class TextHandler {
     private static final String USERS_FILE_PATH = "users.csv";
     private static final String TAXIS_FILE_PATH = "Taxis.csv";
-    public int getLines(String file){
-        int count=0;
-        try (BufferedReader resultReader = new BufferedReader(new FileReader(file))) {
-            while ((resultReader.readLine()) != null) {
-                count++;
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return count;
-    }
     public LinkedList<User> readUsersAndPasswords() {
         LinkedList<User> usersAndPasswords = new LinkedList<>();
         try (BufferedReader resultReader = new BufferedReader(new FileReader(USERS_FILE_PATH))) {
