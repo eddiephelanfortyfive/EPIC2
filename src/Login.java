@@ -127,5 +127,13 @@ public class Login {
         return new User(username,password);
     }
 
+    public static void callLogin(){
+        AppLogic.clearConsole();
+        Login newLogin = new Login();
+        newLogin.loginOrSignUp();
+        AppLogic.anythingToContinue();
+        AppLogic.clearConsole();
+    }
+
 
 }
