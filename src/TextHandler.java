@@ -47,7 +47,7 @@ public class TextHandler {
 
 
     }
-    private static LinkedList<Taxi> readTaxiData() {
+    public static LinkedList<Taxi> readTaxiData() {
         LinkedList<Taxi> taxis = new LinkedList<>();
         try (BufferedReader resultReader = new BufferedReader(new FileReader(TAXIS_FILE_PATH))) {
             String line;

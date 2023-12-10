@@ -3,6 +3,9 @@ import java.util.Scanner;
 import java.util.stream.IntStream;
 
 public class Login {
+    private String username;
+    private String password;
+
     public void loginOrSignUp(){
         Scanner input = new Scanner(System.in);
         TextHandler text = new TextHandler();
@@ -19,7 +22,7 @@ public class Login {
             }
         }
     }
-    public void loginToApp( LinkedList<User> usernames, TextHandler text){
+    public void loginToApp(LinkedList<User> usernames,TextHandler text){
         Scanner input = new Scanner(System.in);
         for(int i=0; i<1; i++) {
             System.out.println("---\nLogin please enter your username: ");
@@ -32,13 +35,14 @@ public class Login {
                 IntStream.range(0, index).forEach(p -> usernames.moveToNext());
                 for (int k = 0; k < 1; k++) {
                     String password = input.nextLine();
-                    if (password.equals((usernames.getData()).getPassword())) {
+                    String passwordLowerCase = password.toLowerCase();
+                    if (passwordLowerCase.equals((usernames.getData()).getPassword())) {
                         System.out.println("Correct, you are now logged into the account " + username);
                     } else {
                         System.out.println("Incorrect password for the account " + username + " please try again.");
                         k--;
-                    }
-                }
+                    }this.password=passwordLowerCase;
+                }this.username=usernameLowerCase;
             } else {
                 System.out.println("The account " + username + " does not exist.\n Would you like to try again?[0]\n Or\n Sign up?[1]");
                 for (int j = 0; j < 1; j++) {
@@ -61,7 +65,7 @@ public class Login {
 
         }
     }
-    public void signUpToApp( LinkedList<User> usernames, TextHandler text){
+    public void signUpToApp(LinkedList<User> usernames,TextHandler text){
         Scanner input = new Scanner(System.in);
     for(int i=0; i<1; i++){
         System.out.println("---\nSign up enter your chosen username: ");
@@ -91,11 +95,12 @@ public class Login {
             String passwordLowerCase = password.toLowerCase();
             text.writeInNewUser(usernameLowerCase,passwordLowerCase);
             System.out.println("Congratulations "+username+" you are now registered!");
-        }
+            this.password=passwordLowerCase;
+        }this.username=usernameLowerCase;
 
         }
     }
-    public int doesContain(String username, LinkedList<User> usernames) {
+    public int doesContain(String username,LinkedList<User> usernames) {
         int result = -1;
         usernames.moveToFirst();
         for (int i = 0; i <username.length(); i++) {
@@ -106,6 +111,9 @@ public class Login {
             usernames.moveToNext();
         }
         return result;
+    }
+    public User getCurrentUser(){
+        return new User(username,password);
     }
 
 

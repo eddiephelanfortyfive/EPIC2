@@ -128,7 +128,7 @@ class LinkedList<T> implements List<T> {
         moveToFirst();
        int size= size();
        for(int i =0; i<size; i++){
-           System.out.println(getData().toString());
+           System.out.println(getData().toString()+" ");
            moveToNext();
        }
     }
