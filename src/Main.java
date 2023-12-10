@@ -1,7 +1,8 @@
-
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+        Random random = new Random();
        AppLogic.clearConsole();
        Login newLogin = new Login();
        newLogin.loginOrSignUp();
@@ -9,4 +10,6 @@ public class Main {
        AppLogic.clearConsole();
        TaxiAppUI.generateMap();
        }
+
+
     }

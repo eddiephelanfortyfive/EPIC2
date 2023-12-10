@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -10,6 +11,7 @@ public class TaxiAppUI{
         private LinkedList<Point> user;
         private Point taxi;
         private char[][] map;
+        private Direction direction;
 
 
 
@@ -19,7 +21,13 @@ public class TaxiAppUI{
 
             initializeMap();
             spawnUser();
-            spawnTaxi();
+            //looping through the spawnTaxi a random number of times between 5 and 10 to have a random number of taxis
+            Random random = new Random();
+            int numOfTaxis = random.nextInt(6) + 5;
+            for(int i = 0; i < numOfTaxis; i++) {
+                spawnTaxi();
+            }
+        System.out.println("there is " + numOfTaxis + " taxis available right now.");
         }
 
         private void initializeMap() {
@@ -51,6 +59,12 @@ public class TaxiAppUI{
             taxi = new Point(taxiX, taxiY);
             map[taxiX][taxiY] = Taxi;
         }
+
+    private void move() {
+
+        }
+
+
 
         private void printMap() {
             for (int i = 0; i < MAP_SIZE; i++) {
