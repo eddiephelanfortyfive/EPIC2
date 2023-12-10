@@ -8,12 +8,12 @@ public class Taxi {
 
 
     public Taxi(String registration, String name, int rating, String brand, String size, int seats){
-        this.registration=registration;
-        this.name=name;
-        this.rating=rating;
-        this.brand=brand;
-        this.size=size;
-        this.seats=seats;
+        this.registration = registration;
+        this.name = name;
+        this.rating = rating;
+        this.brand = brand;
+        this.size = size;
+        this.seats = seats;
     }
 
     public String getRegistration() {
@@ -34,5 +34,9 @@ public class Taxi {
     public int getSeats() {
         return seats;
     }
+
+    /*method to calculate distance between user and taxi
+    using pythagoras theorem */
+
 
 }
