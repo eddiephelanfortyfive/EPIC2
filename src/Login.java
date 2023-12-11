@@ -79,7 +79,8 @@ public class Login {
         System.out.println("---\nSign up enter your chosen username: ");
         String username=input.nextLine();
         String usernameLowerCase = username.toLowerCase();
-        if(usernameLowerCase.equals(" ")) {
+        if(usernameLowerCase.equals("")) {
+            System.out.println("Invalid input please try again.");
             i--;
         }else if(doesContain(usernameLowerCase, usernames)!=-1) {
             System.out.println("The account "+username+" already exists.\n Would you like to log in to this account?[0]\n Or\n Input a different username?[1]\n");
