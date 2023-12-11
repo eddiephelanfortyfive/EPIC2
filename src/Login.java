@@ -2,7 +2,6 @@
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-@SuppressWarnings("ClassEscapesDefinedScope")
 public class Login {
     private String username;
     private String password;

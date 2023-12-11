@@ -26,6 +26,26 @@ class LinkedList<T> implements List<T> {
     private Node current;
     private int size;
 
+    public void remove(T entryToRemove) {
+        if (head == null) {
+            return;
+        }
+
+        if (head.data.equals(entryToRemove)) {
+            head = head.next;
+            return;
+        }
+
+        Node current = head;
+        while (current.next != null && !current.next.data.equals(entryToRemove)) {
+            current = current.next;
+        }
+
+        if (current.next != null) {
+            current.next = current.next.next;
+        }
+    }
+
     private class Node {
         public T data;
         public Node next;
