@@ -1,15 +1,17 @@
-import java.sql.SQLOutput;
 import java.util.LinkedList;
 import java.util.Random;
-
+import java.util.HashMap;
+import java.util.Map;
 public class TaxiAppUI{
         private static final int MAP_SIZE = 10;
         private static final char EMPTY = '.';
-        private static final char User = 'O';
-        private static final char Taxi = '*';
+        private static final char User = 'U';
+        private static final char TAXI = 'T';
 
         private LinkedList<Point> user;
-        private Point taxi;
+        private Map<Point, Integer> taxis;
+        //private Point taxi;
+        private int taxiCount = 0;
         private char[][] map;
         private Direction direction;
 
@@ -18,6 +20,7 @@ public class TaxiAppUI{
     public TaxiAppUI() {
             user = new LinkedList<>();
             map = new char[MAP_SIZE][MAP_SIZE];
+            taxis = new HashMap<>();
 
             initializeMap();
             spawnUser();
@@ -56,8 +59,9 @@ public class TaxiAppUI{
                 taxiY = random.nextInt(MAP_SIZE);
             } while (map[taxiX][taxiY] != EMPTY);
 
-            taxi = new Point(taxiX, taxiY);
-            map[taxiX][taxiY] = Taxi;
+            Point taxiPoint = new Point(taxiX, taxiY);
+            taxis.put(taxiPoint, taxis.size() + 1);
+            map[taxiX][taxiY] = TAXI;
         }
 
     private void move() {
@@ -88,6 +92,8 @@ public class TaxiAppUI{
             taxiApp.run();
             System.out.println("Map generated");
         }
+
+
 
 
     }
