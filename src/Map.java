@@ -1,36 +1,40 @@
 
+import java.util.Random;
 
 public class Map {
-
-        private Location[][] grid;
-        private int mapRadius;
-        private LinkedList<Taxi> taxis;
-        private LinkedList<User> users;
-        public Map(int radius){
-            /*LinkedList<User> listUser= new LinkedList<>();
-            LinkedList<Taxi> listTaxi= new LinkedList<>();
-            this.users = listUser;
-            this.taxis = listTaxi;*/
+    TextHandler text = new TextHandler();
+    private final LinkedList<Taxi> taxis =text.readTaxiData();
+        private final Location[][] grid;
+        private final int mapRadius;
+        public Map(int radius,User currentUser){
             this.grid = new Location[radius][radius];
             this.mapRadius = radius;
-
-            for(int i=0; i < radius; i++) { // columns
-                for (int j = 0; j < radius; j++) { // rows
-                    this.grid[i][j] = new Location(i, j); // init new location item;
+            for(int i=0; i < radius; i++) {
+                for (int j = 0; j < radius; j++) {
+                    this.grid[i][j] = new Location(i, j);
                 }
-            }TextHandler text = new TextHandler();
-            LinkedList<User> usernames =text.readUsersAndPasswords();
-            usernames.moveToFirst();
-            grid[0][5].addUser(usernames.getData());
+            }
+            addTaxisAndUsersToMap(radius,currentUser);
+
         }
 
         public void printMap(){
-            for(int i=0; i<mapRadius; i++) { // columns
-                for (int j = 0; j < mapRadius; j++) { // rows
-                    Location location = grid[j][i]; // changed as was mixed up
+            for(int i=0; i<mapRadius; i++) {
+                for (int j = 0; j < mapRadius; j++) {
+                    Location location = grid[j][i];
                     System.out.print(location.getMapPoint());
                 }
-                System.out.println("");
+                System.out.println();
+            }
+        }
+        public void addTaxisAndUsersToMap(int radius, User currentUser){
+            Random random = new Random();
+            grid[random.nextInt(radius)][random.nextInt(radius)].addUser(currentUser);
+            int numberOfTaxi = random.nextInt(11)+10;
+            taxis.moveToFirst();
+            for(int i=0; i<numberOfTaxi; i++) {
+                grid[random.nextInt(radius)][random.nextInt(radius)].addTaxi(taxis.getData());
+                taxis.moveToNext();
             }
         }
 }

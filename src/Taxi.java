@@ -1,10 +1,10 @@
 public class Taxi {
-    private String registration;
-    private String name;
-    private int rating;
-    private String brand;
-    private String size;
-    private int seats;
+    private final String registration;
+    private final String name;
+    private final int rating;
+    private final String brand;
+    private final String size;
+    private final int seats;
 
 
     public Taxi(String registration, String name, int rating, String brand, String size, int seats){
