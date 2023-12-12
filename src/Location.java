@@ -19,7 +19,9 @@ public class Location {
         return users;
     }
 
-    public List<Taxi> getTaxis(){ return taxis; }
+    public List<Taxi> getTaxis() {
+        return taxis;
+    }
 
     public String getMapPoint() {
         return mapPoint;
