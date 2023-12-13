@@ -7,11 +7,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class TextHandler {
-    private static final String USERS_FILE_PATH = "users.csv";
-    private static final String TAXIS_FILE_PATH = "Taxis.csv";
-    public LinkedList<User> readUsersAndPasswords() {
+    private final String USERS_FILE_PATH = "users.csv";
+    private final String TAXIS_FILE_PATH = "Taxis.csv";
+
+    public String getUSERS_FILE_PATH() {
+        return USERS_FILE_PATH;
+    }
+
+    public String getTAXIS_FILE_PATH() {
+        return TAXIS_FILE_PATH;
+    }
+
+
+
+    public LinkedList<User> readUsersAndPasswords(String file) {
         LinkedList<User> usersAndPasswords = new LinkedList<>();
-        try (BufferedReader resultReader = new BufferedReader(new FileReader(USERS_FILE_PATH))) {
+        try (BufferedReader resultReader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = resultReader.readLine()) != null) {
                 String[] values = line.split(",");
@@ -22,9 +33,9 @@ public class TextHandler {
         }
         return usersAndPasswords;
     }
-    public void writeInNewUser(String username, String password){
+    public void writeInNewUser(String username, String password, String file){
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(USERS_FILE_PATH, true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
 
             String[] data = { username, password };
             String dataLine = String.join(",", data);
@@ -39,9 +50,9 @@ public class TextHandler {
 
 
     }
-    public LinkedList<Taxi> readTaxiData() {
+    public LinkedList<Taxi> readTaxiData(String file) {
         LinkedList<Taxi> taxis = new LinkedList<>();
-        try (BufferedReader resultReader = new BufferedReader(new FileReader(TAXIS_FILE_PATH))) {
+        try (BufferedReader resultReader = new BufferedReader(new FileReader(file))) {
             String line;
             taxis.moveToFirst();
             while ((line = resultReader.readLine()) != null) {

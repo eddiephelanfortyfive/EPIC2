@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Map {
     TextHandler text = new TextHandler();
-    private final LinkedList<Taxi> taxis =text.readTaxiData();
+    private final LinkedList<Taxi> taxis =text.readTaxiData(text.getTAXIS_FILE_PATH());
         private final Location[][] grid;
         private final int mapRadius;
         public Map(int radius, User currentUser){

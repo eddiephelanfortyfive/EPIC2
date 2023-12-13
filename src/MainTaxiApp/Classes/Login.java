@@ -13,7 +13,7 @@ public class Login {
     public void loginOrSignUp(){
         Scanner input = new Scanner(System.in);
         TextHandler text = new TextHandler();
-        LinkedList<User> usernames =text.readUsersAndPasswords();
+        LinkedList<User> usernames =text.readUsersAndPasswords(text.getUSERS_FILE_PATH());
         System.out.println("---\nWelcome to the TaxiApp.\n Sign up [0]\n or\n Log in[1]");
         for(int i =0; i<1; i++) {
             String logInOrSignUp = input.nextLine();
@@ -107,7 +107,7 @@ public class Login {
             System.out.println("---\nWelcome "+username+" please enter your chosen password:");
             String password= input.nextLine();
             String passwordLowerCase = password.toLowerCase();
-            text.writeInNewUser(usernameLowerCase,passwordLowerCase);
+            text.writeInNewUser(usernameLowerCase,passwordLowerCase,text.getUSERS_FILE_PATH());
             System.out.println("Congratulations "+username+" you are now registered!");
             this.password=passwordLowerCase;
         }this.username=usernameLowerCase;
