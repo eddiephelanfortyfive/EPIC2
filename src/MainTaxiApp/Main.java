@@ -1,3 +1,8 @@
+package MainTaxiApp;
+
+import MainTaxiApp.Classes.AppLogic;
+import MainTaxiApp.Classes.Map;
+import MainTaxiApp.Classes.Login;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,3 +1,6 @@
+package MainTaxiApp.Interfaces;
+
+import MainTaxiApp.Classes.Location;
 
 public interface Testing {
     public interface VehicleHiringTest {
