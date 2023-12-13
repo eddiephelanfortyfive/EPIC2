@@ -1,3 +1,5 @@
+package MainTaxiApp.Classes;
+
 public class Taxi {
     private final String registration;
     private final String name;

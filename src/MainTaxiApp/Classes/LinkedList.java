@@ -1,3 +1,5 @@
+package MainTaxiApp.Classes;
+
 interface List<T> {
 
     boolean isEmpty();
@@ -21,7 +23,7 @@ interface List<T> {
     void printAllData();
 }
 
-class LinkedList<T> implements List<T> {
+public class LinkedList<T> implements List<T> {
     private Node head;
     private Node current;
     private int size;

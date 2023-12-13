@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+package MainTaxiApp.Classes;
+
 public class Location {
     private final int x;
     private final int y;

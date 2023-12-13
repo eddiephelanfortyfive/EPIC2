@@ -1,3 +1,4 @@
+package MainTaxiApp.Classes;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;

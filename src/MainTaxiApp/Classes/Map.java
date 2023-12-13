@@ -1,3 +1,4 @@
+package MainTaxiApp.Classes;
 
 import java.util.Random;
 
@@ -6,7 +7,7 @@ public class Map {
     private final LinkedList<Taxi> taxis =text.readTaxiData();
         private final Location[][] grid;
         private final int mapRadius;
-        public Map(int radius,User currentUser){
+        public Map(int radius, User currentUser){
             this.grid = new Location[radius][radius];
             this.mapRadius = radius;
             for(int i=0; i < radius; i++) {

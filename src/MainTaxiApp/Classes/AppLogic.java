@@ -1,3 +1,5 @@
+package MainTaxiApp.Classes;
+
 import java.util.Scanner;
 public class AppLogic {
 
