@@ -17,6 +17,6 @@ public interface Testing {
         public abstract Location testGetVehicleLoc(String reg);
         // Return a list of all vehicles registration numbers located within a square of side 2*r centered at location loc (inclusive
 //of the boundaries).
-        public abstract List<String> testGetVehiclesInRange(Location loc, int r);
+        //public abstract List<String> testGetVehiclesInRange(Location loc, int r);
     }
 }

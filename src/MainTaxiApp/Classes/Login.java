@@ -1,5 +1,6 @@
 package MainTaxiApp.Classes;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
@@ -18,9 +19,11 @@ public class Login {
             String logInOrSignUp = input.nextLine();
             switch (logInOrSignUp) {
                 case OPTION_ZERO:
+                    System.out.println("\nSignUp chosen\n");
                     signUpToApp(usernames, text);
                     break;
                 case OPTION_ONE:
+                    System.out.println("\nLogin chosen\n");
                     loginToApp(usernames, text);
                     break;
                 default:

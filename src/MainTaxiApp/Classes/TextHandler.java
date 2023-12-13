@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-@SuppressWarnings({"ClassEscapesDefinedScope", "CallToPrintStackTrace"})
+
 public class TextHandler {
     private static final String USERS_FILE_PATH = "users.csv";
     private static final String TAXIS_FILE_PATH = "Taxis.csv";
